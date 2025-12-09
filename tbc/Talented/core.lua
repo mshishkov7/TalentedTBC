@@ -2,8 +2,7 @@ local Talented = LibStub("AceAddon-3.0"):NewAddon("Talented", "AceConsole-3.0", 
     "AceEvent-3.0", "AceSerializer-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Talented")
 
-local classes = {'DRUID', 'HUNTER', 'MAGE', 'PALADIN', 'PRIEST', 'ROGUE', 'SHAMAN', 'WARLOCK', 'WARRIOR', 'DEATHKNIGHT',
-                 "Ferocity", "Tenacity", "Cunning"}
+local classes = {'DRUID', 'HUNTER', 'MAGE', 'PALADIN', 'PRIEST', 'ROGUE', 'SHAMAN', 'WARLOCK', 'WARRIOR'}
 Talented.prev_Print = Talented.Print
 function Talented:Print(s, ...)
     if type(s) == "string" and s:find("%", nil, true) then
@@ -162,7 +161,7 @@ do
             dst.code = src.code
             return
         else
-            for tab, tree in ipairs(Talented:UncompressSpellData(src.class)) do
+            for tab, tree in ipairs(Talented:GetTalentInfo(src.class)) do
                 local s, d = src[tab], {}
                 dst[tab] = d
                 for index = 1, #tree do
@@ -173,7 +172,7 @@ do
     end
 
     function Talented:ImportFromOther(name, src)
-        if not self:UncompressSpellData(src.class) then
+        if not self:GetTalentInfo(src.class) then
             return
         end
 
@@ -198,7 +197,7 @@ do
         class = class or select(2, UnitClass "player")
 
         local template = new(self.db.global.templates, L["Empty"], class)
-        local info = self:UncompressSpellData(class)
+        local info = self:GetTalentInfo(class)
         if not info then
             return
         end
