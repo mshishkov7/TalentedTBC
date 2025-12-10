@@ -1,9 +1,9 @@
-## Interface: 20504
+## Interface: 30401
 ## Title: Talented
 ## Name: Talented
 ## Notes: The Talent Template Editor
 ## Author: Jerry,Lethay
-## Version: v221207-TBC
+## Version: v240101-TBC-Anniversary
 ## Dependencies: Talented_Data
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB

@@ -364,3 +364,39 @@ for k,v in pairs(getfenv(0)) do
         end
     end
 end
+
+function Talented:PrintSortedWoWIndices()
+    local _, class = UnitClass("player")
+    if not class then
+        self:Print("Could not determine player class.")
+        return
+    end
+
+    self:Print("Generating talent index map for: " .. class)
+    self:Print("------------------------------------------")
+
+    local output = "    " .. class .. " = {"
+    local numTabs = GetNumTalentTabs()
+
+    for tab = 1, numTabs do
+        local tabIndices = {}
+        -- Loop to a high number (e.g., 60) because talent indices can be sparse in the modern API.
+        for i = 1, 60 do
+            -- The first return value is the talent name. If it's not nil, the index is valid.
+            local name = GetTalentInfo(tab, i)
+            if name then
+                table.insert(tabIndices, i)
+            end
+        end
+        output = output .. "\n        {" .. table.concat(tabIndices, ", ") .. "},"
+    end
+    
+    -- Add a placeholder for the closing brace, to be manually placed
+    output = output .. "\n    },"
+    self:Print(output)
+    self:Print("------------------------------------------")
+    self:Print("1. Copy the output above.")
+    self:Print("2. Open 'tbc\Talented\IndexMatching.lua'.")
+    self:Print("3. Replace the existing table for your class with the new one.")
+    self:Print("NOTE: You will need to do this for EACH class.")
+end

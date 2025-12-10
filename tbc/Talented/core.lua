@@ -91,6 +91,7 @@ function Talented:OnInitialize()
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Talented", self.options)
     self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Talented", "Talented")
     self:RegisterChatCommand("talented", "OnChatCommand")
+    self:RegisterChatCommand("talind", "PrintIndicesCommand")
 
     self:RegisterComm("Talented")
     if self.InitializePet then
@@ -114,6 +115,14 @@ function Talented:OnChatCommand(input)
         self:OpenOptionsFrame()
     else
         LibStub("AceConfigCmd-3.0").HandleCommand(self, "talented", "Talented", input)
+    end
+end
+
+function Talented:PrintIndicesCommand()
+    if self.PrintSortedWoWIndices then
+        self:PrintSortedWoWIndices()
+    else
+        self:Print("Index printing function not found. Make sure DevTools_Dump.lua is loaded.")
     end
 end
 
@@ -306,7 +315,6 @@ end
 
 function Talented:OnEnable()
     self:RawHook("ToggleTalentFrame", true)
-    self:RawHook("ToggleGlyphFrame", true)
     -- Non-taint option that loads Talented's frame IN ADDITION to Blizzard's frame: self:SecureHook("ToggleTalentFrame")
     self:SecureHook("UpdateMicroButtons")
 
@@ -382,18 +390,24 @@ function Talented:UpdateMicroButtons()
 end
 
 function Talented:ToggleTalentFrame()
+    self:Print("ToggleTalentFrame called.")
     local frame = self.base
     if not frame or not frame:IsVisible() then
+        self:Print("Frame not visible, attempting to show.")
         self:Update()
+        self:Print("Update() finished.")
         if self.template then
             -- reset editing mode to the default every time we open the panel after the initial open
             self:SetMode(self:GetDefaultMode())
+            self:Print("SetMode finished.")
         end
         -- ShowUIPanel(self.base)
         self.base:Show()
+        self:Print("base:Show() called.")
     else
         -- HideUIPanel(frame)
         frame:Hide()
+        self:Print("Frame was visible, hiding now.")
     end
 end
 
