@@ -1,56 +1,15 @@
-v230930
-    - Era: Add zhCN localisation (thanks @maxevil05).
-    - Fix generated LUA error when levelling up before Talented is open (@Ulidan).
+v1.0.0-TBC
+    - Initial port to TBC Anniversary (Interface 20505)
 
-v230917
-    - Era: Remove LibGratuity from TOC file.
+v240928-Era
+    - Quick patch for missing EasyMenu functions
 
-v230910b
-    - Add Talented_Data to Era folder
-    - Remove LibGratuity from Era folder
-    
-v230910
-    - Fix viewing of tooltips on first hover, thanks to @Galatex1
-    - Add era-specific version and fix it, thanks to @Ulidan
-    - Move WotLK code to its own folder
-    
-v230210
-    - Commit various files that were accidentally being ignored by git.
-    
-v220130
-    - Remove LibGratuity, hopefully fixing an interaction with Zygor's levelling addon.
-    - Update WoWAce.
-    
-v221207
-    - Fix bug in LFG role selection menu button when changing spec (with Dual Specialisation)
-    - Hide LFG role selection menu button when not viewing active spec -- a disabled menu was confusing
-    
-v221205
-    - Add button to set group finder role.
+v240714-Era
+    - Update for SoD's phase 4
+    - Fixes thanks to mrchops1024
 
-v220907
-    - Fix interaction with Scrolling Loot Text that was preventing the talent window from being opened
-    - Add a more obvious button to switch between primary & secondary spec
-    - Fix hunter pet talents labelling
-    - Fix removal and replacement of glyphs
-    - Fix importing and exporting of deathknight talents to Wowhead
-
-v220904
-    - Fix accidental mis-indexing of talents (don't debug at 2am, kids)
-    - Fix hunter pet talents
-
-v220903
-    - Fix desaturation of talent templates when "always edit" is disabled
-    - Fix incorrect invoke of PlaySound when removing glyphs
-    - Fix linking of incorrect talents in chat
-    - Update TOC to WotLK
-    - Fix spellID when linking talents
-    - Stop unnecessary spell scanning (and hence printing of information)
-    - Fix URL of WoWHead export
-
-    To do:
-    - Add buttons to set group finder role, as in the default blizzard frames.
-    - Fix hunter pet talents
+v231130-Era
+    - Fix Era version by re-adding LibGratuity (sorry)
 
 v210718
     - Add korean localisation (thank you Jinny2305 on Curseforge)

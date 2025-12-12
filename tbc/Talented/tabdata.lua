@@ -1,64 +1,61 @@
 -- Generated Data, do not modify
 local tabdata = {
-	DEATHKNIGHT = {
-		{ background = "DeathKnightBlood", name = "Blood", icon = 135770, role1="DAMAGER", role2="TANK" },
-		{ background = "DeathKnightFrost", name = "Frost", icon = 135773, role1="DAMAGER", role2="TANK" },
-		{ background = "DeathKnightUnholy", name = "Unholy", icon = 135775, role1="DAMAGER", role2="TANK" },
-	},
+	-- DEATHKNIGHT = {
+	-- 	{ background = "DeathKnightBlood", },
+	-- 	{ background = "DeathKnightFrost", },
+	-- 	{ background = "DeathKnightUnholy", },
+	-- },
 	WARRIOR = {
-		{ background = "WarriorArms", name = "Arms", role1="DAMAGER", role2="TANK" },
-		{ background = "WarriorFury", name = "Fury", role1="DAMAGER", role2="TANK" },
-		{ background = "WarriorProtection", name = "Protection", role1="DAMAGER", role2="TANK" },
+		{ background = "WarriorArms", },
+		{ background = "WarriorFury", },
+		{ background = "WarriorProtection", },
 	},
 	ROGUE = {
-		{ background = "RogueAssassination", name = "Assassination", role1="DAMAGER" },
-		{ background = "RogueCombat", name = "Combat", role1="DAMAGER" },
-		{ background = "RogueSubtlety", name = "Subtlety", role1="DAMAGER" },
+		{ background = "RogueAssassination", },
+		{ background = "RogueCombat", },
+		{ background = "RogueSubtlety", },
 	},
 	MAGE = {
-		{ background = "MageArcane", name = "Arcane", role1="DAMAGER" },
-		{ background = "MageFire", name = "Fire", role1="DAMAGER" },
-		{ background = "MageFrost", name = "Frost", role1="DAMAGER" },
+		{ background = "MageArcane", },
+		{ background = "MageFire", },
+		{ background = "MageFrost", },
 	},
 	PRIEST = {
-		{ background = "PriestDiscipline", name = "Discipline", role1="DAMAGER", role2="HEALER"  },
-		{ background = "PriestHoly", name = "Holy", role1="DAMAGER", role2="HEALER"  },
-		{ background = "PriestShadow", name = "Shadow", role1="DAMAGER", role2="HEALER"  },
+		{ background = "PriestDiscipline", },
+		{ background = "PriestHoly", },
+		{ background = "PriestShadow", },
 	},
 	WARLOCK = {
-		{ background = "WarlockCurses", name = "Affliction", role1="DAMAGER"},
-		{ background = "WarlockSummoning", name = "Demonology", role1="DAMAGER"},
-		{ background = "WarlockDestruction", name = "Destruction", role1="DAMAGER"},
+		{ background = "WarlockCurses", },
+		{ background = "WarlockSummoning", },
+		{ background = "WarlockDestruction", },
 	},
 	HUNTER = {
-		{ background = "HunterBeastMastery", name = "Beast Mastery", role1="DAMAGER" },
-		{ background = "HunterMarksmanship", name = "Marksmanship", role1="DAMAGER" },
-		{ background = "HunterSurvival", name = "Survival", role1="DAMAGER" },
+		{ background = "HunterBeastMastery", },
+		{ background = "HunterMarksmanship", },
+		{ background = "HunterSurvival", },
 	},
 	DRUID = {
-		{ background = "DruidBalance", name = "Balance", icon = 136096, role1="DAMAGER"},
-		{ background = "DruidFeralCombat", name = "Feral Combat", icon = 132276, role1="DAMAGER", role2="TANK"  },
-		{ background = "DruidRestoration", name = "Restoration", icon = 136041, role1="HEALER"},
+		{ background = "DruidBalance", },
+		{ background = "DruidFeralCombat", },
+		{ background = "DruidRestoration", },
 	},
 	SHAMAN = {
-		{ background = "ShamanElementalCombat", name = "Elemental", role1="DAMAGER", role2="HEALER" },
-		{ background = "ShamanEnhancement", name = "Enhancement", role1="DAMAGER", role2="HEALER" },
-		{ background = "ShamanRestoration", name = "Restoration", role1="DAMAGER", role2="HEALER" },
+		{ background = "ShamanElementalCombat", },
+		{ background = "ShamanEnhancement", },
+		{ background = "ShamanRestoration", },
 	},
 	PALADIN = {
-		{ background = "PaladinHoly", name = "Holy", role1="DAMAGER", role2="HEALER"  },
-		{ background = "PaladinProtection", name = "Protection", role1="DAMAGER", role2="TANK"  },
-		{ background = "PaladinCombat", name = "Retribution", role1="DAMAGER", role2="TANK"  },
+		{ background = "PaladinHoly", },
+		{ background = "PaladinProtection", },
+		{ background = "PaladinCombat", },
 	},
-	Cunning = { { background = "HunterPetCunning", }, },
-	Tenacity = { { background = "HunterPetTenacity", }, },
-	Ferocity = { { background = "HunterPetFerocity", }, },
 }
 local locale = GetLocale()
 if locale == "esES" then
-	tabdata.DEATHKNIGHT[1].name = "Sangre"
-	tabdata.DEATHKNIGHT[2].name = "Escarcha"
-	tabdata.DEATHKNIGHT[3].name = "Profana"
+	-- tabdata.DEATHKNIGHT[1].name = "Sangre"
+	-- tabdata.DEATHKNIGHT[2].name = "Escarcha"
+	-- tabdata.DEATHKNIGHT[3].name = "Profana"
 	tabdata.WARRIOR[1].name = "Armas"
 	tabdata.WARRIOR[2].name = "Furia"
 	tabdata.WARRIOR[3].name = "Protección"
@@ -86,13 +83,13 @@ if locale == "esES" then
 	tabdata.PALADIN[1].name = "Sagrado"
 	tabdata.PALADIN[2].name = "Protección"
 	tabdata.PALADIN[3].name = "Reprensión"
-	tabdata.Cunning[1].name = "Astucia"
-	tabdata.Tenacity[1].name = "Tenacidad"
-	tabdata.Ferocity[1].name = "Ferocidad"
+	-- tabdata.Cunning[1].name = "Astucia"
+	-- tabdata.Tenacity[1].name = "Tenacidad"
+	-- tabdata.Ferocity[1].name = "Ferocidad"
 elseif locale == "zhCN" then
-	tabdata.DEATHKNIGHT[1].name = "鲜血"
-	tabdata.DEATHKNIGHT[2].name = "冰霜"
-	tabdata.DEATHKNIGHT[3].name = "邪恶"
+	-- tabdata.DEATHKNIGHT[1].name = "鲜血"
+	-- tabdata.DEATHKNIGHT[2].name = "冰霜"
+	-- tabdata.DEATHKNIGHT[3].name = "邪恶"
 	tabdata.WARRIOR[1].name = "武器"
 	tabdata.WARRIOR[2].name = "狂怒"
 	tabdata.WARRIOR[3].name = "防护"
@@ -120,13 +117,13 @@ elseif locale == "zhCN" then
 	tabdata.PALADIN[1].name = "神圣"
 	tabdata.PALADIN[2].name = "防护"
 	tabdata.PALADIN[3].name = "惩戒"
-	tabdata.Cunning[1].name = "灵巧"
-	tabdata.Tenacity[1].name = "坚毅"
-	tabdata.Ferocity[1].name = "凶暴"
+	-- tabdata.Cunning[1].name = "灵巧"
+	-- tabdata.Tenacity[1].name = "坚毅"
+	-- tabdata.Ferocity[1].name = "凶暴"
 elseif locale == "frFR" then
-	tabdata.DEATHKNIGHT[1].name = "Sang"
-	tabdata.DEATHKNIGHT[2].name = "Givre"
-	tabdata.DEATHKNIGHT[3].name = "Impie"
+	-- tabdata.DEATHKNIGHT[1].name = "Sang"
+	-- tabdata.DEATHKNIGHT[2].name = "Givre"
+	-- tabdata.DEATHKNIGHT[3].name = "Impie"
 	tabdata.WARRIOR[1].name = "Armes"
 	tabdata.WARRIOR[2].name = "Fureur"
 	tabdata.WARRIOR[3].name = "Protection"
@@ -154,13 +151,13 @@ elseif locale == "frFR" then
 	tabdata.PALADIN[1].name = "Sacré"
 	tabdata.PALADIN[2].name = "Protection"
 	tabdata.PALADIN[3].name = "Vindicte"
-	tabdata.Cunning[1].name = "Ruse"
-	tabdata.Tenacity[1].name = "Tenacité"
-	tabdata.Ferocity[1].name = "Férocité"
+	-- tabdata.Cunning[1].name = "Ruse"
+	-- tabdata.Tenacity[1].name = "Tenacité"
+	-- tabdata.Ferocity[1].name = "Férocité"
 elseif locale == "zhTW" then
-	tabdata.DEATHKNIGHT[1].name = "血魄"
-	tabdata.DEATHKNIGHT[2].name = "冰霜"
-	tabdata.DEATHKNIGHT[3].name = "穢邪"
+	-- tabdata.DEATHKNIGHT[1].name = "血魄"
+	-- tabdata.DEATHKNIGHT[2].name = "冰霜"
+	-- tabdata.DEATHKNIGHT[3].name = "穢邪"
 	tabdata.WARRIOR[1].name = "武器"
 	tabdata.WARRIOR[2].name = "狂怒"
 	tabdata.WARRIOR[3].name = "防護"
@@ -188,13 +185,13 @@ elseif locale == "zhTW" then
 	tabdata.PALADIN[1].name = "神聖"
 	tabdata.PALADIN[2].name = "防護"
 	tabdata.PALADIN[3].name = "懲戒"
-	tabdata.Cunning[1].name = "靈巧"
-	tabdata.Tenacity[1].name = "堅毅"
-	tabdata.Ferocity[1].name = "兇暴"
+	-- tabdata.Cunning[1].name = "靈巧"
+	-- tabdata.Tenacity[1].name = "堅毅"
+	-- tabdata.Ferocity[1].name = "兇暴"
 elseif locale == "deDE" then
-	tabdata.DEATHKNIGHT[1].name = "Blut"
-	tabdata.DEATHKNIGHT[2].name = "Frost"
-	tabdata.DEATHKNIGHT[3].name = "Unheilig"
+	-- tabdata.DEATHKNIGHT[1].name = "Blut"
+	-- tabdata.DEATHKNIGHT[2].name = "Frost"
+	-- tabdata.DEATHKNIGHT[3].name = "Unheilig"
 	tabdata.WARRIOR[1].name = "Waffen"
 	tabdata.WARRIOR[2].name = "Furor"
 	tabdata.WARRIOR[3].name = "Schutz"
@@ -222,13 +219,13 @@ elseif locale == "deDE" then
 	tabdata.PALADIN[1].name = "Heilig"
 	tabdata.PALADIN[2].name = "Schutz"
 	tabdata.PALADIN[3].name = "Vergeltung"
-	tabdata.Cunning[1].name = "Gerissenheit"
-	tabdata.Tenacity[1].name = "Hartnäckigkeit"
-	tabdata.Ferocity[1].name = "Wildheit"
+	-- tabdata.Cunning[1].name = "Gerissenheit"
+	-- tabdata.Tenacity[1].name = "Hartnäckigkeit"
+	-- tabdata.Ferocity[1].name = "Wildheit"
 elseif locale == "ruRU" then
-	tabdata.DEATHKNIGHT[1].name = "Кровь"
-	tabdata.DEATHKNIGHT[2].name = "Холод"
-	tabdata.DEATHKNIGHT[3].name = "Нечестивость"
+	-- tabdata.DEATHKNIGHT[1].name = "Кровь"
+	-- tabdata.DEATHKNIGHT[2].name = "Холод"
+	-- tabdata.DEATHKNIGHT[3].name = "Нечестивость"
 	tabdata.WARRIOR[1].name = "Оружие"
 	tabdata.WARRIOR[2].name = "Неистовство"
 	tabdata.WARRIOR[3].name = "Защита"
@@ -256,13 +253,13 @@ elseif locale == "ruRU" then
 	tabdata.PALADIN[1].name = "Свет"
 	tabdata.PALADIN[2].name = "Защита"
 	tabdata.PALADIN[3].name = "Возмездие"
-	tabdata.Cunning[1].name = "Хитрость"
-	tabdata.Tenacity[1].name = "Упорство"
-	tabdata.Ferocity[1].name = "Свирепость"
+	-- tabdata.Cunning[1].name = "Хитрость"
+	-- tabdata.Tenacity[1].name = "Упорство"
+	-- tabdata.Ferocity[1].name = "Свирепость"
 elseif locale == "koKR" then
-	tabdata.DEATHKNIGHT[1].name = "혈기"
-	tabdata.DEATHKNIGHT[2].name = "냉기"
-	tabdata.DEATHKNIGHT[3].name = "부정"
+	-- tabdata.DEATHKNIGHT[1].name = "혈기"
+	-- tabdata.DEATHKNIGHT[2].name = "냉기"
+	-- tabdata.DEATHKNIGHT[3].name = "부정"
 	tabdata.WARRIOR[1].name = "무기"
 	tabdata.WARRIOR[2].name = "분노"
 	tabdata.WARRIOR[3].name = "방어"
@@ -290,13 +287,13 @@ elseif locale == "koKR" then
 	tabdata.PALADIN[1].name = "신성"
 	tabdata.PALADIN[2].name = "보호"
 	tabdata.PALADIN[3].name = "징벌"
-	tabdata.Cunning[1].name = "교활"
-	tabdata.Tenacity[1].name = "끈기"
-	tabdata.Ferocity[1].name = "야성"
+	-- tabdata.Cunning[1].name = "교활"
+	-- tabdata.Tenacity[1].name = "끈기"
+	-- tabdata.Ferocity[1].name = "야성"
 else
-	tabdata.DEATHKNIGHT[1].name = "Blood"
-	tabdata.DEATHKNIGHT[2].name = "Frost"
-	tabdata.DEATHKNIGHT[3].name = "Unholy"
+	-- tabdata.DEATHKNIGHT[1].name = "Blood"
+	-- tabdata.DEATHKNIGHT[2].name = "Frost"
+	-- tabdata.DEATHKNIGHT[3].name = "Unholy"
 	tabdata.WARRIOR[1].name = "Arms"
 	tabdata.WARRIOR[2].name = "Fury"
 	tabdata.WARRIOR[3].name = "Protection"
@@ -324,8 +321,8 @@ else
 	tabdata.PALADIN[1].name = "Holy"
 	tabdata.PALADIN[2].name = "Protection"
 	tabdata.PALADIN[3].name = "Retribution"
-	tabdata.Cunning[1].name = "Cunning"
-	tabdata.Tenacity[1].name = "Tenacity"
-	tabdata.Ferocity[1].name = "Ferocity"
+	-- tabdata.Cunning[1].name = "Cunning"
+	-- tabdata.Tenacity[1].name = "Tenacity"
+	-- tabdata.Ferocity[1].name = "Ferocity"
 end
 Talented.tabdata = tabdata

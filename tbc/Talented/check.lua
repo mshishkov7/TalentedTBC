@@ -40,7 +40,7 @@ function Talented:CheckSpellData(class)
 			talents = {}
 			spelldata[tab] = talents
 		end
-		local name, _, _, background = GetTalentTabInfo(tab)
+		local _, name, _, _, _, background = GetTalentTabInfo(tab)
 		tabdata[tab].name = name -- no need to mark invalid for these
 		tabdata[tab].background = background
 		if #talents > GetNumTalents(tab) then
@@ -55,24 +55,23 @@ function Talented:CheckSpellData(class)
 			if not talent then
 				return DisableTalented("%s:%d:%d MISSING TALENT", class, tab, index)
 			end
-			local name, icon, row, column, _, ranks = Talented:OrderedGetTalentInfo(class, tab, index)
-			if not name then
-				if not talent.inactive then
-					print("inactive talent", class, tab, index)
-					talent.inactive = true
-					invalid = true
-				end
-			else
-				if talent.inactive then
-					return DisableTalented("%s:%d:%d NOT INACTIVE", class, tab, index)
-				end
+			local name, icon, row, column, _, ranks = self:MatchedGetTalentInfo(tab, index)
+			-- if not name then
+			-- 	if not talent.inactive then
+			-- 		print("inactive talent", class, tab, index)
+			-- 		talent.inactive = true
+			-- 		invalid = true
+			-- 	end
+			-- else
+				-- if talent.inactive then
+				-- 	return DisableTalented("%s:%d:%d NOT INACTIVE", class, tab, index)
+				-- end
 				local found
 				for _, spell in ipairs(talent.ranks) do
 					if GetSpellInfo(spell) == name then found = true break end
 				end
 				if not found then
 					local s, n = pcall(GetSpellInfo, talent.ranks[1])
-					print("%s:%d:%d MISMATCHED %d ~= %s", class, tab, index, n or "unknown talent-"..talent.ranks[1], name)
 					return DisableTalented("%s:%d:%d MISMATCHED %d ~= %s", class, tab, index, n or "unknown talent-"..talent.ranks[1], name)
 				end
 				if row ~= talent.row then
@@ -95,39 +94,45 @@ function Talented:CheckSpellData(class)
 						talent.ranks[i] = nil
 					end
 				end
-				local req_row, req_column, _, _, req2 = Talented:OrderedTalentPrereqs(class, tab, index)
+				local req2 = GetTalentPrereqs(tab, index)
 				if req2 then
+					req_row    = req2[1].row
+					req_column = req2[1].column
 					print("too many reqs for talent", tab, index, req2)
 					invalid = true
 				end
 				if not req_row then
-					if talent.req then
+					if talent.prereqs then
 						print("too many req for talent", tab, index)
 						invalid = true
-						talent.req = nil
+						talent.prereqs = nil
 					end
 				else
-					local req = talents[talent.req]
-					if not req or req.row ~= req_row or req.column ~= req_column then
-						print("invalid req for talent", tab, index, req and req.row, req_row, req and req.column, req_column)
+					local req = talents[talent].prereqs
+					if not req or req[1].row ~= req_row or req[1].column ~= req_column then
+						print("invalid req for talent", tab, index, req[1].source and req[1].row, req_row, req[1].source and req[1].column, req_column)
 						invalid = true
 						-- it requires another pass to get the right talent.
-						talent.req = 0
+						talent.prereqs = 0
 					end
 				end
-			end
+			-- end
 		end
 		for index = 1, GetNumTalents(tab) do
 			local talent = talents[index]
-			if talent.req == 0 then
-				local row, column = Talented:OrderedTalentPrereqs(class, tab, index)
+			if talent.prereqs == 0 then
+				local req = GetTalentPrereqs(tab, index)
+				if req then 
+					row = req[1].row
+					column = req[1].column
+				end
 				for j = 1, GetNumTalents(tab) do
 					if talents[j].row == row and talents[j].column == column then
-						talent.req = j
+						talent.prereqs[1].source = j
 						break
 					end
 				end
-				assert(talent.req ~= 0)
+				assert(talent.prereqs[1].source ~= 0)
 			end
 		end
 	end

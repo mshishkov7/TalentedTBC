@@ -61,12 +61,12 @@
 -- 		self.inspections = inspections
 -- 	end
 -- 	local _, class = UnitClass(unit)
--- 	local info = self:UncompressSpellData(class)
+-- 	local info = self:GetTalentInfo(class)
 	
 -- 	local template = inspections[template_name]
 -- 	if not template then
 -- 		template = {
--- 			name = L["Inspection of %s"]:format(name)..(talentGroup == GetActiveTalentGroup(true) and "" or L[" (alt)"]),
+-- 			name = L["Inspection of %s"]:format(name),
 -- 			class = class,
 -- 		}
 -- 		for tab, tree in ipairs(info) do

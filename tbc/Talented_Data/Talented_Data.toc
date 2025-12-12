@@ -1,11 +1,12 @@
-## Interface: 11503
+## Interface: 20505
 ## Title: Talented Data
-## Notes: Gather localized information about the different talent trees of your toons
+## Notes: Gather localized information about the different talent trees of your toons (TBC Anniversary)
+## Version: v1.0.0-TBC
 ## Author: Jerry,Lethay
 ## SavedVariables: Talented_DataDB
 ## RequiredDeps: Talented
 ## OptionalDeps: Ace3
-## X-ExpectedBuild: "1.14.1 - 41030 - Nov 10 2021 - 11401"
+## X-ExpectedBuild: "2.5.5 - 58000 - Jan 13 2026 - 20505"
 
 ## LIBS START
 Libs\LibStub.lua

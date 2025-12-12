@@ -1,10 +1,9 @@
-## Interface: 20504
+## Interface: 20505
 ## Title: Talented
 ## Name: Talented
-## Notes: The Talent Template Editor
+## Notes: The Talent Template Editor (TBC Anniversary)
 ## Author: Jerry,Lethay
-## Version: v221207-TBC
-## Dependencies: Talented_Data
+## Version: v1.0.0-TBC
 ## OptionalDeps: Ace3
 ## SavedVariables: TalentedDB
 ## X-Category: Interface Enhancements
@@ -13,8 +12,13 @@
 ## X-LoadOn-Slash: /talented
 ## X-LoadOn-Event: CONFIRM_TALENT_WIPE
 ## X-LoadOn-CONFIRM_TALENT_WIPE: if IsAddOnLoaded"Talented" then return end AddonLoader:LoadAddOn"Talented" if Talented then Talented:CONFIRM_TALENT_WIPE() end
+## X-Curse-Packaged-Version: v1.0.0-TBC
+## X-Curse-Project-Name: Talented
+## X-Curse-Project-ID: talented
+## X-Curse-Repository-ID: wow/talented/mainline
 
 #@no-lib-strip@
+Libs\LibGratuity-3.0\LibGratuity-3.0.lua
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
 Libs\AceAddon-3.0\AceAddon-3.0.xml
@@ -48,10 +52,7 @@ chat.lua
 tips.lua
 apply.lua
 wowhead.lua
-DevTools_Dump.lua
-IndexMatching.lua
-spelldata.lua
-spellscan.lua
+wowdb.lua
 
 ui\pool.lua
 ui\base.lua
@@ -61,6 +62,3 @@ ui\branches.lua
 ui\arrows.lua
 ui\lines.lua
 ui\menu.lua
-ui\roleselect.lua
-
-pet.lua

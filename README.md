@@ -1,6 +1,12 @@
 # TalentedClassic
 WoW addon. A replacement to the default talent UI that allows creation of templates and viewing of all trees at once.
 
+Supports:
+- **Classic Era** (Vanilla 1.15.x)
+- **TBC Anniversary** (2.5.x)
+- **Season of Discovery**
+- **Wrath of the Lich King Classic** (3.4.x)
+
 This was an addon originally written by "Jerry" (URL: https://www.wowinterface.com/downloads/info12593-Talented.html). The project is since abandoned, so I adapted old code to form this version.
 
 **Feature List (adapted from original page)**

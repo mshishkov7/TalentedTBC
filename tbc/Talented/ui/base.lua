@@ -144,33 +144,6 @@ local function CreateBaseButtons(parent)
 	end)
 	b:SetPoint("LEFT", parent.bactions, "RIGHT", 14, 0)
 
-	local b = MakeButton(parent)
-	parent.bglyphs = b
-	b:SetText(GLYPHS)
-	b:SetSize(max(110, b:GetTextWidth() + 22), 22)
-	b:SetScript("OnClick", function (self)
-		Talented:ToggleGlyphFrame()
-	end)
-	b:SetPoint("LEFT", parent.bmode, "RIGHT", 14, 0)
-
-	--Button for role selection
-	local b = MakeButton(parent)
-	parent.brole = b
-	local roleIcon = INLINE_DAMAGER_ICON
-	b:SetText(roleIcon)
-	b:SetSize(max(12, b:GetTextWidth()+12), 22)
-	parent.brole:SetPoint("TOPRIGHT", -14, -25)
-	b:SetScript("OnClick", function (self)
-		Talented:OpenRoleMenu(self)
-	end)
-	b:SetScript("OnShow", function (self)
-		-- role = Talented:GetTemplateTalentGroupRole()
-		--Just show the role from our current spec according to the Blizzard API, as the button's hidden otherwise
-		role = GetTalentGroupRole(GetActiveTalentGroup())
-		icon = Talented:GetRoleIcon(role)
-		self:SetText(icon)	
-	end)
-
 	local e = CreateFrame("EditBox", nil, parent, "InputBoxTemplate")
 	parent.editname = e
 	e:SetFontObject(ChatFontNormal)
@@ -190,13 +163,13 @@ local function CreateBaseButtons(parent)
 		end)
 	e:SetScript("OnEnter", Frame_OnEnter)
 	e:SetScript("OnLeave", Frame_OnLeave)
-	e:SetPoint("LEFT", parent.bglyphs, "RIGHT", 14, 1)
+	e:SetPoint("LEFT", parent.bmode, "RIGHT", 14, 1)
 	e.tooltip = L["You can edit the name of the template here. You must press the Enter key to save your changes."]
 
 	local fs = parent:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 	fs:SetJustifyH("LEFT")
 	fs:SetSize(200, 13)
-	fs:SetPoint("LEFT", parent.bglyphs, "RIGHT", 14, 0)
+	fs:SetPoint("LEFT", parent.bmode, "RIGHT", 14, 0)
 	parent.targetname = fs
 
 	do
@@ -253,40 +226,37 @@ local function CreateBaseButtons(parent)
 	points:SetSize(80, 14)
 	points:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -40, -6)
 
-	local b = MakeButton(parent)
-	parent.bactivate = b
-	b:SetText(TALENT_SPEC_ACTIVATE)
-	b:SetSize(b:GetTextWidth() + 40, 22)
-	b:SetScript("OnClick", function (self)
-		if self.talentGroup then
-			SetActiveTalentGroup(self.talentGroup)
-		end
-	end)
-	b:SetPoint("BOTTOM", 0, 6)
-	b:SetFrameLevel(parent:GetFrameLevel() + 2)
+	-- local b = MakeButton(parent)
+	-- parent.bactivate = b
+
+	-- b:SetText(TALENT_SPEC_ACTIVATE)
+	-- b:SetSize(b:GetTextWidth() + 40, 22)
+	-- b:SetScript("OnClick", function (self)
+	-- 	if self.talentGroup then
+	-- 		SetActiveTalentGroup(self.talentGroup)
+	-- 	end
+	-- end)
+	-- b:SetPoint("BOTTOM", 0, 6)
+	-- b:SetFrameLevel(parent:GetFrameLevel() + 2)
 end
 
 local function BaseFrame_SetTabSize(self, tabs)
 	local tabs = tabs or 3
-	local bglyphs, editname, targetname, points = self.bglyphs, self.editname, self.targetname, self.points
-	bglyphs:ClearAllPoints()
+	local bmode, editname, targetname, points = self.bmode, self.editname, self.targetname, self.points
 	editname:ClearAllPoints()
 	targetname:ClearAllPoints()
 	points:ClearAllPoints()
 	if tabs == 1 then
-		bglyphs:SetPoint("TOPLEFT", self.bactions, "BOTTOMLEFT", 0, -5)
-		editname:SetPoint("TOPLEFT", bglyphs, "BOTTOMLEFT", 0, -4)
-		targetname:SetPoint("TOPLEFT", bglyphs, "BOTTOMLEFT", 0, -5)
+		editname:SetPoint("TOPLEFT", bmode, "BOTTOMLEFT", 0, -4)
+		targetname:SetPoint("TOPLEFT", bmode, "BOTTOMLEFT", 0, -5)
 		points:SetPoint("TOPRIGHT", self, "TOPRIGHT", -8, -56)
 	elseif tabs == 2 then
-		bglyphs:SetPoint("LEFT", self.bmode, "RIGHT", 14, 0)
-		editname:SetPoint("TOPLEFT", bglyphs, "BOTTOMLEFT", 0, -4)
-		targetname:SetPoint("TOPLEFT", bglyphs, "BOTTOMLEFT", 0, -5)
+		editname:SetPoint("TOPLEFT", bmode, "BOTTOMLEFT", 0, -4)
+		targetname:SetPoint("TOPLEFT", bmode, "BOTTOMLEFT", 0, -5)
 		points:SetPoint("TOPRIGHT", self, "TOPRIGHT", -8, -31)
 	elseif tabs == 3 then
-		bglyphs:SetPoint("LEFT", self.bmode, "RIGHT", 14, 0)
-		editname:SetPoint("LEFT", bglyphs, "RIGHT", 14, 1)
-		targetname:SetPoint("LEFT", bglyphs, "RIGHT", 14, 0)
+		editname:SetPoint("LEFT", bmode, "RIGHT", 14, 1)
+		targetname:SetPoint("LEFT", bmode, "RIGHT", 14, 0)
 		points:SetPoint("TOPRIGHT", self, "TOPRIGHT", -40, -6)
 	end
 end
@@ -364,13 +334,13 @@ function Talented:CreateBaseFrame()
 	UISpecialFrames[#UISpecialFrames + 1] = "TalentedFrame"
 
 	frame:SetScript("OnShow", function ()
-		Talented:RegisterEvent("MODIFIER_STATE_CHANGED")
+		Talented:RegisterEvent"MODIFIER_STATE_CHANGED"
 		SetButtonPulse(TalentMicroButton, 0, 1)
-		PlaySound(6144, "SFX") --ID for TalentScreenOpen https://www.wowhead.com/sound=6144/unknown-sound
+		PlaySound(6144) --ID for TalentScreenOpen https://www.wowhead.com/sound=6144/unknown-sound
 		Talented:UpdateMicroButtons()
 	end)
 	frame:SetScript("OnHide", function()
-		PlaySound(6145, "SFX") --ID for TalentScreenClose
+		PlaySound(6145) --ID for TalentScreenClose
 		if Talented.mode == "apply" then
 			Talented:SetMode(Talented:GetDefaultMode())
 			Talented:Print(L["Error! Talented window has been closed during template application. Please reapply later."])
@@ -378,7 +348,7 @@ function Talented:CreateBaseFrame()
 		end
 		Talented:CloseMenu()
 		Talented:UpdateMicroButtons()
-		Talented:UnregisterEvent("MODIFIER_STATE_CHANGED")
+		Talented:UnregisterEvent"MODIFIER_STATE_CHANGED"
 	end)
 	frame.SetTabSize = BaseFrame_SetTabSize
 	frame.view = self.TalentView:new(frame, "base")
