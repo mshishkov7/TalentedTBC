@@ -223,3 +223,18 @@ Compatible with other popular addons ✓
 
 
 This plan should give you a clear roadmap without diving into code specifics. The key insight is that Era is your base, not WotLK, and the main work will be in API compatibility, TOC updates, and thorough testing rather than major feature rewrites.
+
+
+Based on the comprehensive review of the provided files and the porting plan, the code modifications for the TBC Anniversary port are complete. The critical changes for Interface version, TBC detection, talent point caps (61), Wowhead URLs, and Backdrop templates have been applied.
+
+I have verified that:
+
+TOC Files: Both Talented.toc and Talented_Data.toc target Interface 20505 (TBC Anniversary).
+TBC Detection: options.lua and editmode.lua correctly identify TBC (WOW_PROJECT_ID == 5) and set the talent cap to 61 points.
+Wowhead Integration: wowhead.lua points to tbc.wowhead.com.
+UI Compatibility: ui/base.lua uses BackdropTemplate for frame creation, ensuring compatibility with the modern Classic client.
+Known Issues: Hunter pet talents are correctly disabled in tabdata.lua, consistent with the known issues list.
+Next Steps (Manual Actions Required):
+
+Regenerate Talent Data: The Talented_Data addon currently contains Vanilla talent data (unless you have already updated the Lua files inside Data/). You must log into the TBC client and use the Talented_Data_Export tool (command /script Talented_Data_Export()) to generate the correct TBC talent data, then update the files in Talented_Data/Data/. Without this, templates for other classes may show Vanilla trees.
+No further code changes are required in the provided files.
