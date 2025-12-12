@@ -19,9 +19,10 @@ local BUTTON_TEXTURES = {
 	DISABLED = "Interface\\Buttons\\UI-Panel-Button-Disabled",
 	PUSHED_DISABLED = "Interface\\Buttons\\UI-Panel-Button-Disabled-Down",
 }
-local DefaultButton_Enable = GameMenuButtonOptions.Enable
-local DefaultButton_Disable = GameMenuButtonOptions.Disable
-local DefaultButton_SetButtonState = GameMenuButtonOptions.SetButtonState
+local tempButton = CreateFrame("Button")
+local DefaultButton_Enable = tempButton.Enable
+local DefaultButton_Disable = tempButton.Disable
+local DefaultButton_SetButtonState = tempButton.SetButtonState
 local function Button_SetState(self, state)
 	if not state then
 		if self:IsEnabled() == 0 then
